@@ -7,7 +7,7 @@ using namespace std;
 struct Point_{
 	int r,c;
 };
-typedef Point_ Point;
+typedef Point_ Point;	
 
 deque<Point> State;
 deque<Point> Node;
@@ -25,27 +25,30 @@ int main(){
 void Backtrack(int n, deque<Point> State){
 	if(n==0)
 		SolutionFound = true;
+
 	if(SolutionFound == true)
 		return;
+
 	int row, col;
 	Point p;
+	p.r = n;
 
-	for(row = n; row >= 1; row--){
+	for(col = 1; col <= SIZE; col++){
 
-		for(col = 1; col <= SIZE; col++){
-
+		p.c = col;
 			if(ValidPosition(State, p)){
 				State.push_back(p);
 				Backtrack(n-1, State);
 			}
 			else{
 				if(col == SIZE){
-					
+					State.pop_back();
+					Backtrack(n+1, State);
 				}
 			}
-		}
-
 	}
+
+	
 }
 
 int Mod(int a, int b){
