@@ -35,7 +35,7 @@ bool Subset(vector<int> A , int i, int Sum){
 		Index.pop_back();
 		return false;
 	}
-	if(Subset(A,i+1,Sum-A[i]) == true){
+		if(Subset(A,i+1,Sum-A[i]) == true){
 		Index.push_back(i);
 		return true;
 	}
