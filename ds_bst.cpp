@@ -29,6 +29,7 @@ public:
 	Node* returnCurrent();
 //	void display(Node *current);
 	void InorderTraversal(Node *current);
+	bool Tree_Search(Node *x, int value);
 };
 
 void BinaryTree::addKey(int data){
@@ -79,35 +80,50 @@ void BinaryTree::InorderTraversal(Node *current){
 
 	if(current->l != NULL)
 		InorderTraversal(current->l);
-	cout<<current->key<<endl;
+
+	cout<<current->key<<" => ";
+	
 	if(current->r != NULL)
-		InorderTraversal(current->l);
+		InorderTraversal(current->r);
 }
 
+bool Tree_Search(Node *x, int value){
+	if(x==NULL)
+		return false;
+	else if(x->key == value)
+		return true;
+	else if( value < x->key)
+		return Tree_Search(x->l, value);
+	else 
+		return Tree_Search(x->r , value);
+}
 int main(){
 	BinaryTree T;
 	Node *root;
 	root = T.returnCurrent();
-	T.addKey(1);
+	T.addKey(15);
 	T.addLeftChild();
-	T.addLeftKey(2);
+	T.addLeftKey(6);
 	T.addRightChild();
-	T.addRightKey(3);
+	T.addRightKey(18);
 	
 	T.moveLeft();
 	T.addLeftChild();
-	T.addLeftKey(4);
+	T.addLeftKey(3);
 	T.addRightChild();
-	T.addRightKey(5);
+	T.addRightKey(7);
 
 	T.moveUp();
 
 	T.moveRight();
 	T.addLeftChild();
-	T.addLeftKey(6);
+	T.addLeftKey(17);
 	T.addRightChild();
-	T.addRightKey(7);
+	T.addRightKey(20);
 
-	cout<<root->key<<endl;
+	//cout<<root->key<<endl;
+	cout<<"InorderTraversal:"<<endl;
 	T.InorderTraversal(root);
+	cout<<endl;
+	cout<<Tree_Search(root,50)<<endl;
 }
