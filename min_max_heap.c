@@ -3,6 +3,20 @@
 //see plot.py, heap_vs_linear.png
 // https://github.com/rishirajsurti/dsa/blob/master/plot.py
 // https://github.com/rishirajsurti/dsa/blob/master/heap_vs_linear.png
+
+/*
+Explaination of why this takes only 2*log(n) comparisons:
+
+Here we are not sorting the array using HeapSort.
+We are just calling the (Min/Max)Heapify procedure on the array
+and printing the first element.
+
+Heapsort takes n*log(n) because it calles Heapify procedures n times.
+See here: https://github.com/rishirajsurti/dsa/blob/master/heapsort.c
+
+Here we are calling once for Min and once for Max.
+Hence 2*log(n)
+*/
 #include <stdio.h>
 #include <stdlib.h>
 
