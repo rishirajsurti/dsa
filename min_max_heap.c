@@ -1,7 +1,8 @@
 //find min max using heapify procedures
 //least number of comparisons ever
 //see plot.py, heap_vs_linear.png
-
+// https://github.com/rishirajsurti/dsa/blob/master/plot.py
+// https://github.com/rishirajsurti/dsa/blob/master/heap_vs_linear.png
 #include <stdio.h>
 #include <stdlib.h>
 
